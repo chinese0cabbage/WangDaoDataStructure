@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WangDaoDataStructure", "WangDaoDataStructure\WangDaoDataStructure.vcxproj", "{4FC4B682-B5E0-4F58-A22E-6A811EAD8ED7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FC4B682-B5E0-4F58-A22E-6A811EAD8ED7}.Debug|x64.ActiveCfg = Debug|x64
+		{4FC4B682-B5E0-4F58-A22E-6A811EAD8ED7}.Debug|x64.Build.0 = Debug|x64
+		{4FC4B682-B5E0-4F58-A22E-6A811EAD8ED7}.Debug|x86.ActiveCfg = Debug|Win32
+		{4FC4B682-B5E0-4F58-A22E-6A811EAD8ED7}.Debug|x86.Build.0 = Debug|Win32
+		{4FC4B682-B5E0-4F58-A22E-6A811EAD8ED7}.Release|x64.ActiveCfg = Release|x64
+		{4FC4B682-B5E0-4F58-A22E-6A811EAD8ED7}.Release|x64.Build.0 = Release|x64
+		{4FC4B682-B5E0-4F58-A22E-6A811EAD8ED7}.Release|x86.ActiveCfg = Release|Win32
+		{4FC4B682-B5E0-4F58-A22E-6A811EAD8ED7}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F817F74E-17DC-4049-8AB3-F846948A1C7B}
+	EndGlobalSection
+EndGlobal
