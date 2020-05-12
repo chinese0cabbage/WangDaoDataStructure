@@ -125,6 +125,11 @@
   <ItemGroup>
     <ClCompile Include="Entrance.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="2.2SqList.h" />
+    <ClInclude Include="Ch2\2.2SqList.h" />
+    <ClInclude Include="Utils\DataUtils.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

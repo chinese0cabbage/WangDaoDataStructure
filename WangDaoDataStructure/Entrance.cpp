@@ -1,6 +1,7 @@
-#include"Ch2/2.2SqList.h"
+#include"2.2SqList.h"
+#include"Utils/DataUtils.h"
 int main() {
-	SqList* sql = InitSqList();
+	/*SqList* sql = InitSqList();
 	for (int i = 0; i < 25; i++)
 	{
 		sql->data[i] = i;
@@ -10,6 +11,8 @@ int main() {
 	{
 		sql->data[i] = i;
 	}
-	double t = PopMin(sql);
+	OrderReversed(sql);*/
+	int a = 1, b = 2;
+	ExchangeByBit(&a, &b);
 	return 0;
 }

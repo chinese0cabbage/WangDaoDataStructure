@@ -1,5 +1,6 @@
 #pragma once
 #include<malloc.h>
+#include"Utils/DataUtils.h"
 #define MaxSize 50
 typedef struct {
 	double data[MaxSize];
@@ -47,3 +48,15 @@ double PopMin(SqList* head) {
 }
 
 //Q2,逆置顺序表中的元素
+void OrderReversed(SqList* head) {
+	if (head->length == 0)
+		return;
+	int back2mid = head->length - 1, head2mid = 0;
+	while (back2mid > head2mid)
+	{
+		ExchangeByPointer(&head->data[head2mid], &head->data[back2mid]);
+		back2mid--;head2mid++;
+	}
+}
+
+//Q3,删除顺序表中所有值为x的元素
