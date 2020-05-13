@@ -75,5 +75,20 @@ void DeleteValueX(SqList* head, double x) {
 
 //Q4,删除有序顺序表中给定的s~t之间的所有元素，不含s和t
 void DeleteValueBetweenST(SqList* head, double s, double t) {
-
+	int low = 0, high = head->length - 1, mid = (low + high) / 2, jump = mid, sP = -1, tP = -1;
+	while (mid >= 0 && mid <= head->length - 1)
+	{
+		if (head->data[mid] < s)
+		{
+			low = mid + 1;
+			mid = (low + high) / 2;
+			jump = mid;
+		}
+		else if(head->data[mid] > t)
+		{
+			high = mid - 1;
+			mid = (low + high) / 2;
+			jump = mid;
+		}
+	}
 }
