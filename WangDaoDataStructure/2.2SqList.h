@@ -11,7 +11,7 @@ typedef struct {
 SqList* InitSqList() {
 	SqList* head;
 	head = (SqList*)malloc(sizeof(SqList));
-	head->length = 50;
+	// head->length = 50;
 	head->maxSize = MaxSize;
 	return head;
 }
@@ -54,9 +54,26 @@ void OrderReversed(SqList* head) {
 	int back2mid = head->length - 1, head2mid = 0;
 	while (back2mid > head2mid)
 	{
-		ExchangeByPointer(&head->data[head2mid], &head->data[back2mid]);
-		back2mid--;head2mid++;
+		ExchangeByPointer(&head->data[head2mid++], &head->data[back2mid--]);
 	}
 }
 
 //Q3,删除顺序表中所有值为x的元素
+void DeleteValueX(SqList* head, double x) {
+	int jump = 0;
+	for (int i = 0; i < head->length - jump - 1; i++)
+	{
+		if (head->data[i] == x) {
+			if (head->data[jump + i] == x)
+				jump++;
+			ExchangeByPointer(&head->data[i], &head->data[jump + i]);
+
+		}
+	}
+	head->length -= jump;
+}
+
+//Q4,删除有序顺序表中给定的s~t之间的所有元素，不含s和t
+void DeleteValueBetweenST(SqList* head, double s, double t) {
+
+}
