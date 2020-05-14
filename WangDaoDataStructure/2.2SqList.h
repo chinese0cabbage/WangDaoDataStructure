@@ -60,6 +60,7 @@ void OrderReversed(SqList* head) {
 
 //Q3,删除顺序表中所有值为x的元素
 void DeleteValueX(SqList* head, double x) {
+	//采用后方元素迁移覆盖的方式删除元素
 	int jump = 0;
 	for (int i = 0; i < head->length - jump - 1; i++)
 	{
@@ -67,7 +68,6 @@ void DeleteValueX(SqList* head, double x) {
 			if (head->data[jump + i] == x)
 				jump++;
 			ExchangeByPointer(&head->data[i], &head->data[jump + i]);
-
 		}
 	}
 	head->length -= jump;
@@ -75,6 +75,7 @@ void DeleteValueX(SqList* head, double x) {
 
 //Q4,删除有序顺序表中给定的s~t之间的所有元素，不含s和t
 void DeleteValueBetweenST(SqList* head, double s, double t) {
+	//先用二分法将mid跳到s和t之间，再分别向两边用二分法寻找s和t所在下标，最终将t后的元素前移至s的位置达到删除的目的
 	int low = 0, high = head->length - 1, mid = (low + high) / 2, jump = mid, sP = -1, tP = -1;
 	while (mid >= 0 && mid <= head->length - 1)
 	{
@@ -83,12 +84,18 @@ void DeleteValueBetweenST(SqList* head, double s, double t) {
 			low = mid + 1;
 			mid = (low + high) / 2;
 			jump = mid;
+			continue;
 		}
 		else if(head->data[mid] > t)
 		{
 			high = mid - 1;
 			mid = (low + high) / 2;
 			jump = mid;
+			continue;
+		}
+		while (head->data[mid] != s)
+		{
+
 		}
 	}
 }
