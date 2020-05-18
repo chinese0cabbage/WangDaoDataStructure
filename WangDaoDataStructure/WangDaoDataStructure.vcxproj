@@ -129,6 +129,8 @@
     <ClInclude Include="2.2SqList.h" />
     <ClInclude Include="Ch2\2.2SqList.h" />
     <ClInclude Include="Utils\DataUtils.h" />
+    <ClInclude Include="Utils\ListUtils.h" />
+    <ClInclude Include="Utils\TypeUtils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

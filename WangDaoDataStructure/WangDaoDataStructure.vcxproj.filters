@@ -29,5 +29,11 @@
     <ClInclude Include="2.2SqList.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Utils\TypeUtils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\ListUtils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
