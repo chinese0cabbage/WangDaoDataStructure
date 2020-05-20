@@ -79,8 +79,12 @@ void DeleteValueBetweenST(SqList* head, double s, double t) {
 	int low = 0, high = head->length - 1, mid = (low + high) / 2, jump = mid, sP = -1, tP = -1;
 	while (mid >= 0 && mid <= head->length - 1)
 	{
-		if (head->data[mid] < s)
+		if (head->data[mid] <= s)
 		{
+			if (head->data[mid] == s)
+			{
+				sP = mid;
+			}
 			low = mid + 1;
 			mid = (low + high) / 2;
 			jump = mid;
