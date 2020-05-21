@@ -1,5 +1,6 @@
 #pragma once
 #include<malloc.h>
+#include<math.h>
 #include"Utils/DataUtils.h"
 #define MaxSize 50
 typedef struct {
@@ -79,27 +80,38 @@ void DeleteValueBetweenST(SqList* head, double s, double t) {
 	int low = 0, high = head->length - 1, mid = (low + high) / 2, jump = mid, sP = -1, tP = -1;
 	while (mid >= 0 && mid <= head->length - 1)
 	{
-		if (head->data[mid] <= s)
-		{
+		if (sP == -1 && head->data[mid] <= s)
+		{//当前值小于最小点，向上迁移,sP已被赋值则跳过
 			if (head->data[mid] == s)
-			{
 				sP = mid;
-			}
 			low = mid + 1;
+			jump = abs((low + high) / 2 - mid);
 			mid = (low + high) / 2;
-			jump = mid;
 			continue;
 		}
-		else if(head->data[mid] > t)
-		{
+		else if (tP == -1 && head->data[mid] >= t)
+		{//当前值大于最大点，向下迁移,eP已被赋值则跳过
+			if (head->data[mid] == t)
+				tP = mid;
 			high = mid - 1;
+			jump = abs((low + high) / 2 - mid);
 			mid = (low + high) / 2;
-			jump = mid;
 			continue;
 		}
-		while (head->data[mid] != s)
-		{
-
+		else if (sP == -1)
+		{//前两个判断都已跳过，证明已经迁移到s~t之间
+			sP = Bisearch(head->data, s, mid, mid - jump);
 		}
+		else if (tP == -1)
+		{//前两个判断都已跳过，证明已经迁移到s~t之间
+			tP = Bisearch(head->data, t, mid + jump, mid);
+		}
+		else
+			break;
+		sP++;
+		while (tP < head->length) {
+			head->data[sP++] = head->data[tP++];
+		}
+		head->length -= (tP - sP - 1);
 	}
 }

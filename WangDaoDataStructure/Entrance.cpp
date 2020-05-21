@@ -12,6 +12,6 @@ int main() {
 		sql->data[i] = i;
 	}
 	sql->length = 50;
-	int pos = Bisearch(sql->data, 50, 26);
+	int pos = Bisearch(sql->data,26,49);
 	return 0;
 }
