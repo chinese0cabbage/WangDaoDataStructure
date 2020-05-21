@@ -1,7 +1,7 @@
 #pragma once
 //二分查找double型有序数组中的goal的索引位置，如若不存在，返回-1
-int Bisearch(double arr[], int length, double goal) {
-	int low = 0, high = length - 1, mid = (low + high) / 2;
+int Bisearch(double arr[], double goal, int high = 0, int low = 0) {
+	int mid = (low + high) / 2;
 	while (high >= low)
 	{
 		mid = (low + high) / 2;
