@@ -2,7 +2,7 @@
 #include<malloc.h>
 #include<math.h>
 #include"Utils/DataUtils.h"
-#define MaxSize 50
+#define MaxSize 500
 typedef struct {
 	double data[MaxSize];
 	int length;//顺序表的当前长度
@@ -75,7 +75,9 @@ void DeleteValueX(SqList* head, double x) {
 }
 
 //Q4,删除有序顺序表中给定的s~t之间的所有元素，不含s和t
-void DeleteValueBetweenST(SqList* head, double s, double t) {
+void DeleteOrderedValueBetweenST(SqList* head, double s, double t) {
+	if (head->length == 0 || s > t)
+		return;
 	//先用二分法将mid跳到s和t之间，再分别向两边用二分法寻找s和t所在下标，最终将t后的元素前移至s的位置达到删除的目的
 	int low = 0, high = head->length - 1, mid = (low + high) / 2, jump = mid, sP = -1, tP = -1;
 	while (mid >= 0 && mid <= head->length - 1)
@@ -115,3 +117,55 @@ void DeleteValueBetweenST(SqList* head, double s, double t) {
 		head->length -= (tP - sP - 1);
 	}
 }
+
+//Q5,删除无序顺序表中大小在s~t之间的元素
+void DeleteDisorderedValueBetweenST(SqList* head, double s, double t) {
+
+}
+
+//Q6,从有序顺序表中删除值重复的元素
+void DeleteRepeate(SqList* head) {
+	int nextInsert = 1;
+	double curElem = head->data[0];
+	for (int i = 1; i < head->length; i++)
+	{
+		if (curElem == head->data[i])
+			continue;
+		else
+		{
+			head->data[nextInsert++] = head->data[i];
+			curElem = head->data[i];
+			head->length--;
+		}
+	}
+}
+
+//Q7,两个顺序表合并成一个顺序表，并将该顺序表作为函数返回值
+
+SqList* Combine2OrderedSqList(SqList* list1, SqList* list2) {
+	SqList* head = (SqList*)malloc(sizeof(SqList));
+	head->length = list1->length + list2->length;
+	int i1 = 0, i2 = 0, i = 0;
+	while (i1 < list1->length || i2 < list2->length)
+	{
+		if (i1 < list1->length && i2 < list2->length)
+		{
+			if (list1->data[i1] > list2->data[i2])
+				head->data[i++] = list2->data[i2++];
+			else
+				head->data[i++] = list1->data[i1++];
+		}
+		else
+		{
+			if (i1 < list1->length)
+				head->data[i++] = list1->data[i1++];
+			else
+				head->data[i++] = list2->data[i2++];
+		}
+	}
+	return head;
+}
+
+//Q8,不知道题目在描述什么
+
+//Q9,
