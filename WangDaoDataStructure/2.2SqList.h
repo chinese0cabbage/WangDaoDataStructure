@@ -168,4 +168,30 @@ SqList* Combine2OrderedSqList(SqList* list1, SqList* list2) {
 
 //Q8,不知道题目在描述什么
 
-//Q9,
+//Q9,查找值线性表中为X的元素并与其后元素互换，如果不存在则插入并是原线性表有序
+void SearchX(double arr[],int length, double x) {
+	int pos = Bisearch(arr, x, length - 1);
+	if (pos == -1)
+	{
+		arr[length] = x;
+		for (int i = length - 1; i >= 0; i--)
+		{
+			if (arr[i] > x)
+			{
+				arr[i + 1] = arr[i];
+			}
+			else
+			{
+				arr[i + 1] = x;
+				break;
+			}
+		}
+	}
+	else 
+	{
+		if (pos != length - 1)
+			ExchangeByPointer(&arr[pos], &arr[pos + 1]);
+	}
+}
+
+//Q10,将一维数组循环左移p个单位
