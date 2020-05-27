@@ -124,6 +124,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Entrance.cpp" />
+    <ClCompile Include="Tree.cpp" />
+    <ClCompile Include="Utils\TreeNodeStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2.2SqList.h" />
