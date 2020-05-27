@@ -2,6 +2,7 @@
 #include"Utils/TreeNodeStack.h"
 #include<malloc.h>
 #include<stdio.h>
+CommandType WaitCommandTip();
 TreeNode* InitTree() {
 	TreeNode* head, * last;
 	TreeNodeStack* stack;
@@ -9,7 +10,7 @@ TreeNode* InitTree() {
 	stack = (TreeNodeStack*)malloc(sizeof(TreeNodeStack));
 	double input = 0;
 	printf("请输入根节点的值:");
-	scanf("%lf", &input);
+	scanf_s("%lf", &input);
 	head->val = input;
 	head->Pos = 1;
 	InsertNode(stack, head);
@@ -17,6 +18,7 @@ TreeNode* InitTree() {
 	CommandType command = Left;
 	while(command != End) {
 		command = WaitCommandTip();
+		TreeNode* newNode;
 		switch (command)
 		{
 		case Cancel:
@@ -32,9 +34,9 @@ TreeNode* InitTree() {
 		case End:
 			return head;
 		case Left:
-			TreeNode* newNode = (TreeNode*)malloc(sizeof(TreeNode));
+			newNode = (TreeNode*)malloc(sizeof(TreeNode));
 			printf("请输入要插入左节点的值:");
-			scanf("%lf", &input);
+			scanf_s("%lf", &input);
 			newNode->val = input;
 			newNode->Pos = last->Pos * 2;
 			last->LeftChild = newNode;
@@ -42,9 +44,9 @@ TreeNode* InitTree() {
 			last = newNode;
 			break;
 		case Right:
-			TreeNode* newNode = (TreeNode*)malloc(sizeof(TreeNode));
+			newNode = (TreeNode*)malloc(sizeof(TreeNode));
 			printf("请输入要插入右节点节点的值:");
-			scanf("%lf", &input);
+			scanf_s("%lf", &input);
 			newNode->val = input;
 			newNode->Pos = last->Pos * 2 + 1;
 			last->RightChild = newNode;
@@ -52,7 +54,7 @@ TreeNode* InitTree() {
 			last = newNode;
 			break;
 		default:
-			break;
+			return NULL;
 		}
 	}
 	return head;
@@ -60,10 +62,10 @@ TreeNode* InitTree() {
 
 CommandType WaitCommandTip() {
 	int inputCommand = -1;
-	printf("*********提示**********");
-	printf("0:取消(程序退出),1:返回上一节点选择,2:结束插入,3:插入左子节点的值,4:插入右子节点的值");
+	printf("*********提示**********\n");
+	printf("0:取消(程序退出),1:返回上一节点选择,2:结束插入,3:插入左子节点的值,4:插入右子节点的值\n");
 	printf("请输入下一步操作指令：");
-	scanf("%d", &inputCommand);
+	scanf_s("%d", &inputCommand);
 	if (inputCommand >= 0 && inputCommand <= 4) {
 		return (enum CommandType)inputCommand;
 	}

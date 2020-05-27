@@ -18,27 +18,27 @@
     <ClCompile Include="Entrance.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Tree.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Utils\TreeNodeStack.h">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Utils\DataUtils.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Ch2\2.2SqList.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="2.2SqList.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\TypeUtils.h">
+    <ClInclude Include="Tree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\DataUtils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\TreeNodeStack.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Utils\ListUtils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\TypeUtils.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

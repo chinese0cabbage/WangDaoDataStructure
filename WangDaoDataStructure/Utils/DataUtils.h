@@ -1,7 +1,7 @@
 #pragma once
 //通过交换指针将两个数的数值交换(需要创建临时变量)
 void ExchangeByPointer(double* a, double* b) {
-	int tmp = *a;
+	double tmp = *a;
 	*a = *b;
 	*b = tmp;
 }

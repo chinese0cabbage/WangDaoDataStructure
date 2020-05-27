@@ -11,13 +11,13 @@ typedef struct {
 	double item2;
 }Tuple;
 
-typedef struct {
+typedef struct TreeNode {
 	int Pos;
 	double val;
-	TreeNode* LeftChild, * RightChild;
+	struct TreeNode* LeftChild, * RightChild;
 }TreeNode;
 
-typedef enum CommandType
+enum CommandType
 {
 	Cancel = 0,
 	Back = 1,
@@ -26,6 +26,6 @@ typedef enum CommandType
 	Right = 4,
 };
 
-typedef struct {
+typedef struct TreeNodeStack {
 	TreeNode* StackClooector[500];
 }TreeNodeStack;

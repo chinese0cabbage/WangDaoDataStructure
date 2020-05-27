@@ -1,6 +1,9 @@
-#include"2.2SqList.h"
+ #include"2.2SqList.h"
+ #include"Tree.h"
+#include<malloc.h>
 int main() {
-	SqList* sql = InitSqList();
+	TreeNode* head = InitTree();
+	/*SqList* sql = InitSqList();
 	for (int i = 0; i < 25; i++)
 	{
 		sql->data[i] = i;
@@ -12,5 +15,5 @@ int main() {
 	}
 	sql->length = 50;
 	LeftMovePPosition(sql, 15);
-	return 0;
+	return 0;*/
 }
