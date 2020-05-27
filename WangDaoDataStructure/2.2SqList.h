@@ -2,12 +2,8 @@
 #include<malloc.h>
 #include<math.h>
 #include"Utils/DataUtils.h"
-#define MaxSize 500
-typedef struct {
-	double data[MaxSize];
-	int length;//顺序表的当前长度
-	int maxSize;//顺序表的最大长度
-}SqList;
+#include "Utils/ListUtils.h"
+#include"Utils/TypeUtils.h"
 
 SqList* InitSqList() {
 	SqList* head;
@@ -19,7 +15,7 @@ SqList* InitSqList() {
 
 //以下为2.2.3.二的综合应用题 P19
 
-//Q1,删除顺序表中的最小值
+//Q1,删除顺序表中的最小值,tested
 double PopMin(SqList* head) {
 	if (head->length == 0)
 	{
@@ -48,15 +44,9 @@ double PopMin(SqList* head) {
 	return min;
 }
 
-//Q2,逆置顺序表中的元素
+//Q2,逆置顺序表中的元素,tested
 void OrderReversed(SqList* head) {
-	if (head->length == 0)
-		return;
-	int back2mid = head->length - 1, head2mid = 0;
-	while (back2mid > head2mid)
-	{
-		ExchangeByPointer(&head->data[head2mid++], &head->data[back2mid--]);
-	}
+	ReversedLimitOrder(head->data, 0, head->length - 1);
 }
 
 //Q3,删除顺序表中所有值为x的元素
@@ -141,7 +131,6 @@ void DeleteRepeate(SqList* head) {
 }
 
 //Q7,两个顺序表合并成一个顺序表，并将该顺序表作为函数返回值
-
 SqList* Combine2OrderedSqList(SqList* list1, SqList* list2) {
 	SqList* head = (SqList*)malloc(sizeof(SqList));
 	head->length = list1->length + list2->length;
@@ -194,4 +183,20 @@ void SearchX(double arr[],int length, double x) {
 	}
 }
 
-//Q10,将一维数组循环左移p个单位
+//Q10,将一维数组循环左移p个单位,计算次数为2*n/2=n,时间复杂度为O(n),空间复杂度为O(1),没有申请额外空间,tested
+void LeftMovePPosition(SqList* head, int p) {
+	if (p <= 0)
+		return;
+	ReversedLimitOrder(head->data, 0, p - 1);//逆序前p个元素
+	ReversedLimitOrder(head->data, p, head->length - 1);//逆序后length-p-1个元素
+	ReversedLimitOrder(head->data, 0, head->length - 1);//逆序整个数组
+}
+
+//Q11,寻找两个等长数组的中位数
+int SeachMidNum(int arr1[], int arr2[], int length) {
+	int goal = length - 1, sentry1 = 0, sentry2 = 0;
+	if (arr1[goal / 2] > arr2[goal / 2]) {
+		sentry2 = goal / 2;
+	}
+	return 0;
+}

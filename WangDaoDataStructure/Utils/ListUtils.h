@@ -1,4 +1,5 @@
 #pragma once
+#include"DataUtils.h"
 //二分查找double型有序数组中的goal的索引位置，如若不存在，返回-1
 int Bisearch(double arr[], double goal, int high = 0, int low = 0) {
 	int mid = (low + high) / 2;
@@ -13,4 +14,11 @@ int Bisearch(double arr[], double goal, int high = 0, int low = 0) {
 			high = mid - 1;
 	}
 	return -1;
+}
+
+//逆序下标在low和high之间的元素（包含low和high）
+void ReversedLimitOrder(double arr[], int low, int high) {
+	while (high > low) {
+		ExchangeByPointer(&arr[high--], &arr[low++]);
+	}
 }
