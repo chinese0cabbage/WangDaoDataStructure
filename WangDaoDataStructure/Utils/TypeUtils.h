@@ -20,10 +20,16 @@ typedef struct TreeNode {
 enum CommandType
 {
 	Cancel = 0,
-	Back = 1,
+	Get = 1,
 	End = 2,
 	Left = 3,
 	Right = 4,
+};
+
+enum Confirm
+{
+	No,
+	Yes,
 };
 
 typedef struct TreeNodeStack {
