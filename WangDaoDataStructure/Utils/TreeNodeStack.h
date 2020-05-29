@@ -1,16 +1,25 @@
+#pragma once
+#include<malloc.h>
 #include"TypeUtils.h"
-void InsertNode(TreeNodeStack* stack, TreeNode *node) {
-	stack->StackClooector[node->Pos - 1] = node;
+//以头结点作为动态的节点，入栈是在头结点处接入，出栈是直接弹出头结点的元素
+TreeNodeList* InitTreeNodeStack(TreeNode* head) {
+	TreeNodeList* stack;
+	stack = (TreeNodeList*)malloc(sizeof(TreeNodeList));
+	stack->node = head;
+	stack->next = NULL;
+	return stack;
 }
 
-TreeNode* PopParentNode(TreeNodeStack* stack, TreeNode *node) {
-	if (node->Pos == 1)
-		return NULL;
-	return stack->StackClooector[node->Pos / 2];
+void PushNode(TreeNodeList* stack, TreeNode* node) {
+	TreeNodeList* newStack;
+	newStack = (TreeNodeList*)malloc(sizeof(TreeNodeList));
+	newStack->node = node;
+	newStack->next = stack;
+	stack = newStack;
 }
 
-TreeNode* GetSpecifyNode(TreeNodeStack* stack, int pos) {
-	if (pos < 0)
-		return NULL;
-	return stack->StackClooector[pos];
+TreeNode* PopNode(TreeNodeList* stack) {
+	TreeNode* node = stack->node;
+	stack = stack->next;
+	return node;
 }

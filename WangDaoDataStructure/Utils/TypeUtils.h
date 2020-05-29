@@ -1,5 +1,6 @@
 #pragma once
 #define MaxSize 500
+
 typedef struct {
 	double data[MaxSize];
 	int length;//顺序表的当前长度
@@ -32,6 +33,11 @@ enum Confirm
 	Yes,
 };
 
-typedef struct TreeNodeStack {
+typedef struct TreeNodeCollector {
 	TreeNode* StackClooector[500];
-}TreeNodeStack;
+}TreeNodeCollector;
+
+typedef struct TreeNodeList {
+	TreeNode* node;
+	TreeNodeList* next;
+}TreeNodeList;

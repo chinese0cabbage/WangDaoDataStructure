@@ -1,15 +1,16 @@
-#include"Utils/TypeUtils.h"
-#include"Utils/TreeNodeStack.h"
 #include<malloc.h>
 #include<stdio.h>
 #include<string.h>
+#include"Utils/TypeUtils.h"
+#include"Utils/TreeNodeColt.h"
+
 CommandType WaitCommandTip();
 Confirm WaitConfirm();
 TreeNode* InitTree() {
 	TreeNode* head, * last, * tmp;
-	TreeNodeStack* stack;
+	TreeNodeCollector* stack;
 	head = (TreeNode*)malloc(sizeof(TreeNode));
-	stack = (TreeNodeStack*)malloc(sizeof(TreeNodeStack));
+	stack = (TreeNodeCollector*)malloc(sizeof(TreeNodeCollector));
 	for (int i = 0; i < 500; i++)
 	{
 		stack->StackClooector[i] = NULL;

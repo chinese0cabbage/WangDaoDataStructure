@@ -1,5 +1,6 @@
  #include"2.2SqList.h"
  #include"Tree.h"
+
 int main() {
 	TreeNode* head = InitTree();
 	/*SqList* sql = InitSqList();
