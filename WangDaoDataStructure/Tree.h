@@ -6,7 +6,7 @@
 
 CommandType WaitCommandTip();
 Confirm WaitConfirm();
-TreeNode* InitTree() {
+TreeNode* InitTree() {//tested
 	TreeNode* head, * last, * tmp;
 	TreeNodeCollector* stack;
 	head = (TreeNode*)malloc(sizeof(TreeNode));
@@ -93,7 +93,7 @@ TreeNode* InitTree() {
 	return head;
 }
 
-CommandType WaitCommandTip() {
+CommandType WaitCommandTip() {//tested
 	int inputCommand = -1;
 	printf("*********提示**********\n");
 	printf("0:取消(程序退出),1:获取指定索引位置的节点作为父节点,2:结束插入,3:插入左子节点的值,4:插入右子节点的值\n");
@@ -108,7 +108,7 @@ CommandType WaitCommandTip() {
 	}
 }
 
-Confirm WaitConfirm() {
+Confirm WaitConfirm() {//tested
 	printf("请确认 0:no 1:yes\n");
 	int inputCommand;
 	scanf_s("%d", &inputCommand);

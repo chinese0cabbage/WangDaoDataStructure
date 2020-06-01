@@ -47,5 +47,11 @@
     <ClInclude Include="Utils\TreeNodeQueue.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Utils\SortUtils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\SearchUtils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
