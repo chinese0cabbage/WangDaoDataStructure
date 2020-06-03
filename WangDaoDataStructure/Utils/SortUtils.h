@@ -1,5 +1,6 @@
 #pragma once
 #include"DataUtils.h"
+#include"ShowUtils.h"
 
 //通过直接插入排序将数组进行排序,查找插入空位时引入二分查找并不会带来太大的时间收益
 void InsertSort(double arr[], int length) {//tested
@@ -30,25 +31,33 @@ void BubbleSort(double arr[], int length) {//tested
 }
 
 //交换排序之快速排序
-void QuickSort(double arr[], int length, int low, int high) {
+void QuickSort(double arr[], int low, int high) {//tested
 	if (high <= low)
 		return;
 	else if (high - low == 1) {
 		if (arr[high] < arr[low])
 			ExchangeByPointer(&arr[high], &arr[low]);
+		return;
 	}
 	else {
 		double sentry = arr[low];
 		int hole = low, originHigh = high, originLow = low;
 		while (high > low) {
-			while (arr[high] > sentry)
+			while (arr[high] >= sentry && high > low)
 				high--;
-			arr[hole] = arr[high];
-			hole = high;
-			while (arr[low] < sentry)
+			if (high > low) {
+				arr[hole] = arr[high];
+				hole = high;
+			}
+			while (arr[low] <= sentry && high > low)
 				low++;
-			arr[hole] = arr[low];
-			hole = low;
+			if (high > low) {
+				arr[hole] = arr[low];
+				hole = low;
+			}
 		}
+		arr[high] = sentry;
+		QuickSort(arr, originLow, low - 1);
+		QuickSort(arr, high + 1, originHigh);
 	}
 }

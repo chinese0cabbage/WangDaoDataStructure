@@ -53,5 +53,8 @@
     <ClInclude Include="Utils\SearchUtils.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Utils\ShowUtils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

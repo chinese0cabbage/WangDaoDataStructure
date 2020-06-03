@@ -132,6 +132,7 @@
     <ClInclude Include="Utils\DataUtils.h" />
     <ClInclude Include="Utils\ListUtils.h" />
     <ClInclude Include="Utils\SearchUtils.h" />
+    <ClInclude Include="Utils\ShowUtils.h" />
     <ClInclude Include="Utils\SortUtils.h" />
     <ClInclude Include="Utils\TreeNodeColt.h" />
     <ClInclude Include="Utils\TreeNodeQueue.h" />
