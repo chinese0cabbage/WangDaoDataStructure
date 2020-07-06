@@ -56,5 +56,17 @@
     <ClInclude Include="Utils\ShowUtils.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Utils\TreeNodeMaxHeap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BST.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\LinkedListUtils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\ErrorUtils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

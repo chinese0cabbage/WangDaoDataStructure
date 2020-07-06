@@ -4,6 +4,7 @@
 #include"Utils/DataUtils.h"
 #include "Utils/ListUtils.h"
 #include"Utils/TypeUtils.h"
+#include "Utils/SearchUtils.h"
 
 SqList* InitSqList() {
 	SqList* head;

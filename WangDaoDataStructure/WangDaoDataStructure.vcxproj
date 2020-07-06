@@ -127,14 +127,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2.2SqList.h" />
+    <ClInclude Include="BST.h" />
     <ClInclude Include="Ch2\2.2SqList.h" />
     <ClInclude Include="Tree.h" />
     <ClInclude Include="Utils\DataUtils.h" />
+    <ClInclude Include="Utils\ErrorUtils.h" />
+    <ClInclude Include="Utils\LinkedListUtils.h" />
     <ClInclude Include="Utils\ListUtils.h" />
     <ClInclude Include="Utils\SearchUtils.h" />
     <ClInclude Include="Utils\ShowUtils.h" />
     <ClInclude Include="Utils\SortUtils.h" />
     <ClInclude Include="Utils\TreeNodeColt.h" />
+    <ClInclude Include="Utils\TreeNodeMaxHeap.h" />
     <ClInclude Include="Utils\TreeNodeQueue.h" />
     <ClInclude Include="Utils\TreeNodeStack.h" />
     <ClInclude Include="Utils\TypeUtils.h" />

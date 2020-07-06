@@ -7,6 +7,11 @@ typedef struct {
 	int maxSize;//顺序表的最大长度
 }SqList;
 
+typedef struct LinkedListNode {
+	double val;
+	LinkedListNode* next;
+}LinkedListNode;
+
 typedef struct {
 	double item1;
 	double item2;
@@ -34,7 +39,7 @@ enum Confirm
 };
 
 typedef struct TreeNodeCollector {
-	TreeNode* StackClooector[500];
+	TreeNode* StackClooector[500];//500个指向树节点的指针构成的数组
 }TreeNodeCollector;
 
 typedef struct TreeNodeList {
