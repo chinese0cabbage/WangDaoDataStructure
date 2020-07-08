@@ -3,7 +3,7 @@
 #include<malloc.h>
 #include"ErrorUtils.h"
 
-LinkedListNode* InsertNode2Head(LinkedListNode* linkedList, double goal) {
+LinkedListNode* InsertNode2Head(LinkedListNode* linkedList, double goal) { //tested
 	LinkedListNode* newNode = (LinkedListNode*)malloc(sizeof(LinkedListNode));
 	if (!newNode)
 		ErrorExit(MallocError);
@@ -13,7 +13,7 @@ LinkedListNode* InsertNode2Head(LinkedListNode* linkedList, double goal) {
 }
 
 void InsertNode2Tail(LinkedListNode* linkedList, double goal) {
-	LinkedListNode* newNode = (LinkedListNode*)malloc(sizeof(LinkedListNode));
+	LinkedListNode* newNode = (LinkedListNode*)malloc(sizeof(LinkedListNode)); //tested
 	LinkedListNode* head = linkedList;
 	if (!newNode)
 		ErrorExit(MallocError);
