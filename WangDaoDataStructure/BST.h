@@ -5,7 +5,8 @@
 TreeNode* ApplyNewNode(double val, int pos);
 void DeleteChildNodeWith2ChildByMove(TreeNode* parent, double goal);
 void FreeEqualChild(TreeNode* parent, double goal);
-void InsertNode2BST(TreeNode* tree, double goal) {
+void DeleteChildNodeWith2ChildByReplace(TreeNode* parent, double goal);
+void InsertNode2BST(TreeNode* tree, double goal) { //tested
 	if (!tree)
 		ErrorExit(ErrorNullInput); //根节点为空，直接返回
 
@@ -39,7 +40,7 @@ void InsertNode2BST(TreeNode* tree, double goal) {
 	}
 }
 
-TreeNode* SearchBSTNode(TreeNode* tree, double goal) {
+TreeNode* SearchBSTNode(TreeNode* tree, double goal) { //tested
 	if (!tree)
 		ErrorExit(ErrorNullInput);
 	TreeNode* head = tree;
@@ -62,7 +63,7 @@ TreeNode* SearchBSTNode(TreeNode* tree, double goal) {
 	}
 }
 
-void DeleteBSTNode(TreeNode* tree, double goal) {
+void DeleteBSTNode(TreeNode* tree, double goal) { //tested
 	if (!tree)
 		ErrorExit(ErrorNullInput);
 	TreeNode* head = tree, * parent = NULL;
@@ -84,21 +85,23 @@ void DeleteBSTNode(TreeNode* tree, double goal) {
 				return;
 		}
 		else {
-			if (!head->LeftChild && !head->RightChild) {
-				DeleteChildNodeWith2ChildByMove(parent, goal);
-				// DeleteChildNodeWith2ChildByReplace(parent, goal);
+			if (head->LeftChild && head->RightChild) {
+				// DeleteChildNodeWith2ChildByMove(parent, goal);
+				DeleteChildNodeWith2ChildByReplace(parent, goal);
+				return;
 			}
 			else {
 				FreeEqualChild(parent, goal);
+				return;
 			}
 		}
 	}
 }
 
 //删除当前节点中与值相等的孩子节点
-void FreeEqualChild(TreeNode* parent, double goal) {
+void FreeEqualChild(TreeNode* parent, double goal) { //tested
 	TreeNode* toDelete = NULL;
-	if (parent->LeftChild->val == goal) {
+	if (parent->LeftChild && parent->LeftChild->val == goal) {
 		toDelete = parent->LeftChild;
 		if (!toDelete->LeftChild && !toDelete->RightChild)
 			parent->LeftChild = NULL;
@@ -108,7 +111,7 @@ void FreeEqualChild(TreeNode* parent, double goal) {
 			parent->LeftChild = toDelete->RightChild;
 		free(toDelete);
 	}
-	else if (parent->RightChild->val == goal) {
+	else if (parent->RightChild && parent->RightChild->val == goal) {
 		toDelete = parent->RightChild;
 		if (!toDelete->LeftChild && !toDelete->RightChild)
 			parent->RightChild = NULL;
@@ -121,7 +124,7 @@ void FreeEqualChild(TreeNode* parent, double goal) {
 }
 
 //被删除节点的左右孩子节点都会发生迁移，一个接到双亲节点上，一个持续下落到最大或最小的节点下接上
-void DeleteChildNodeWith2ChildByMove(TreeNode* parent, double goal) {
+void DeleteChildNodeWith2ChildByMove(TreeNode* parent, double goal) { //tested
 	TreeNode* toDelete = NULL, * toAdd = NULL;
 	if (parent->LeftChild->val == goal) {
 		toDelete = parent->LeftChild;
@@ -132,7 +135,7 @@ void DeleteChildNodeWith2ChildByMove(TreeNode* parent, double goal) {
 		toAdd->RightChild = toDelete->RightChild;
 	}
 	else {
-		toDelete = parent->LeftChild;
+		toDelete = parent->RightChild;
 		parent->RightChild = toDelete->RightChild;
 		toAdd = parent->RightChild;
 		while (toAdd->LeftChild)
@@ -143,39 +146,57 @@ void DeleteChildNodeWith2ChildByMove(TreeNode* parent, double goal) {
 }
 
 //被删除节点的左右孩子均保持不动，寻找左子树的最大节点(或右子树的最小节点)代替被删除节点，如果被移动的节点还有子树，则用子树的根节点放到被移动节点位置
-void DeleteChildNodeWith2ChildByReplace(TreeNode* parent, double goal) {
+void DeleteChildNodeWith2ChildByReplace(TreeNode* parent, double goal) { //tested
 	TreeNode* replaceNode = NULL, * replaceNodeParent = NULL, * toDelete = NULL;
 	if (parent->LeftChild->val == goal) {
 		toDelete = parent->LeftChild;
-		replaceNode = parent->LeftChild;
-		while (replaceNode->RightChild) {
-			replaceNodeParent = replaceNode;
-			replaceNode = replaceNode->RightChild;
+		replaceNodeParent = toDelete;
+		replaceNode = replaceNodeParent->LeftChild;
+		if (replaceNode->RightChild) {
+			while (replaceNode->RightChild) {
+				replaceNodeParent = replaceNode;
+				replaceNode = replaceNode->RightChild;
+			}
+			if (replaceNode->LeftChild) {
+				replaceNodeParent->RightChild = replaceNode->LeftChild;
+				replaceNode->LeftChild = NULL;
+			}
+			replaceNode->LeftChild = toDelete->LeftChild;
+			replaceNode->RightChild = toDelete->RightChild;
+			parent->LeftChild = replaceNode;
 		}
-		if (replaceNode->LeftChild)
-			replaceNodeParent->RightChild = replaceNode->LeftChild;
-		replaceNode->LeftChild = toDelete->LeftChild;
-		replaceNode->RightChild = toDelete->RightChild;
-		parent->LeftChild = replaceNode;
+		else {
+			parent->LeftChild = toDelete->LeftChild;
+			parent->LeftChild->RightChild = toDelete->RightChild;
+		}
 		free(toDelete);
 	}
 	else {
 		toDelete = parent->RightChild;
-		replaceNode = parent->RightChild;
-		while (replaceNode->LeftChild) {
-			replaceNodeParent = replaceNode;
-			replaceNode = replaceNode->LeftChild;
+		replaceNodeParent = toDelete;
+		replaceNode = replaceNodeParent->RightChild;
+		if (replaceNode->LeftChild) {
+			while (replaceNode->LeftChild) {
+				replaceNodeParent = replaceNode;
+				replaceNode = replaceNode->LeftChild;
+			}
+			if (replaceNode->RightChild) {
+				replaceNodeParent->LeftChild = replaceNode->RightChild;
+				replaceNode->RightChild = NULL;
+			}
+			replaceNode->LeftChild = toDelete->LeftChild;
+			replaceNode->RightChild = toDelete->RightChild;
+			parent->RightChild = replaceNode;
 		}
-		if (replaceNode->RightChild)
-			replaceNodeParent->LeftChild = replaceNode->RightChild;
-		replaceNode->LeftChild = toDelete->LeftChild;
-		replaceNode->RightChild = toDelete->RightChild;
-		parent->RightChild = replaceNode;
+		else {
+			parent->RightChild = toDelete->RightChild;
+			parent->RightChild->LeftChild = toDelete->LeftChild;
+		}
 		free(toDelete);
 	}
 }
 
-TreeNode* ApplyNewNode(double val, int pos) {
+TreeNode* ApplyNewNode(double val, int pos) { //tested
 	TreeNode* newNode = (TreeNode*)malloc(sizeof(TreeNode));
 	if (!newNode)
 		ErrorExit(MallocError);
