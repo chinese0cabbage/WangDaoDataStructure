@@ -3,6 +3,7 @@
 #include<malloc.h>
 #include"ErrorUtils.h"
 
+//在单链表的标头插入新节点
 LinkedListNode* InsertNode2Head(LinkedListNode* linkedList, double goal) { //tested
 	LinkedListNode* newNode = (LinkedListNode*)malloc(sizeof(LinkedListNode));
 	if (!newNode)
@@ -12,6 +13,7 @@ LinkedListNode* InsertNode2Head(LinkedListNode* linkedList, double goal) { //tes
 	return newNode;
 }
 
+//在链表的表尾插入新节点
 void InsertNode2Tail(LinkedListNode* linkedList, double goal) {
 	LinkedListNode* newNode = (LinkedListNode*)malloc(sizeof(LinkedListNode)); //tested
 	LinkedListNode* head = linkedList;
