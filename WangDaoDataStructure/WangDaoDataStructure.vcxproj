@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2.2SqList.h" />
+    <ClInclude Include="AVL.h" />
     <ClInclude Include="BST.h" />
     <ClInclude Include="Ch2\2.2SqList.h" />
     <ClInclude Include="Tree.h" />
