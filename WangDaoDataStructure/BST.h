@@ -17,6 +17,7 @@ void InsertNode2BST(TreeNode* tree, double goal) { //tested
 	//查找合适的位置插入节点
 	while (head) {
 		if (head->val == goal) {
+			free(newNode);
 			return; //等于，不需要新增
 		}
 		else if (goal > head->val) { //大于根节点，向右走
