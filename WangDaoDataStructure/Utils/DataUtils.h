@@ -19,3 +19,11 @@ void ExchangeByBit(int* a, int* b) {//tested
 	*b ^= *a;
 	*a ^= *b;
 }
+
+double Max(double a, double b) {
+	return a > b ? a : b;
+}
+
+double Min(double a, double b) {
+	return a > b ? b : a;
+}
