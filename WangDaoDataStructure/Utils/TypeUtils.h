@@ -1,7 +1,7 @@
 #pragma once
 #define MaxSize 500
 
-typedef struct {
+typedef struct SqList {
 	double data[MaxSize];
 	int length;//顺序表的当前长度
 	int maxSize;//顺序表的最大长度
@@ -12,7 +12,7 @@ typedef struct LinkedListNode {
 	LinkedListNode* next;
 }LinkedListNode;
 
-typedef struct {
+typedef struct Tuple {
 	double item1;
 	double item2;
 }Tuple;
@@ -39,7 +39,7 @@ enum Confirm
 };
 
 typedef struct TreeNodeCollector {
-	TreeNode* StackClooector[500];//500个指向树节点的指针构成的数组
+	TreeNode* StackCollector[MaxSize];//500个指向树节点的指针构成的数组
 }TreeNodeCollector;
 
 typedef struct TreeNodeList {

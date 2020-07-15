@@ -26,9 +26,6 @@
     <ClInclude Include="2.2SqList.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Tree.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Utils\DataUtils.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -69,6 +66,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="AVL.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GenerateTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TraverseTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\TreeUtils.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

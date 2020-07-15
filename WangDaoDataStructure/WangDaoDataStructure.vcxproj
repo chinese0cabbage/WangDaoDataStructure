@@ -130,7 +130,8 @@
     <ClInclude Include="AVL.h" />
     <ClInclude Include="BST.h" />
     <ClInclude Include="Ch2\2.2SqList.h" />
-    <ClInclude Include="Tree.h" />
+    <ClInclude Include="GenerateTree.h" />
+    <ClInclude Include="TraverseTree.h" />
     <ClInclude Include="Utils\DataUtils.h" />
     <ClInclude Include="Utils\ErrorUtils.h" />
     <ClInclude Include="Utils\LinkedListUtils.h" />
@@ -142,6 +143,7 @@
     <ClInclude Include="Utils\TreeNodeMaxHeap.h" />
     <ClInclude Include="Utils\TreeNodeQueue.h" />
     <ClInclude Include="Utils\TreeNodeStack.h" />
+    <ClInclude Include="Utils\TreeUtils.h" />
     <ClInclude Include="Utils\TypeUtils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
